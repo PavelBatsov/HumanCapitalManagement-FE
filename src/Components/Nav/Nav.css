@@ -1,0 +1,13 @@
+.nav_list {
+  display: flex;
+  flex-flow: row nowrap;
+  gap: 1px;
+  background-color: aliceblue;
+}
+
+.nav_link {
+  padding: 20px 30px;
+  text-decoration: none;
+  color: #000;
+  background-color: rgb(190, 202, 212);
+}
