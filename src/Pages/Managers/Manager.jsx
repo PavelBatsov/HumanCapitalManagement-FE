@@ -151,9 +151,10 @@ const Manager = (props) => {
                 <div className="mb-3">
                   <label htmlFor="recipient-name" className="col-form-label">Manager Type</label>
                       <select className="form-select" aria-label="Default select example" name="managerType" defaultValue={defaultForm.managerType}>
-                        <option defaultValue>Open this select menu</option>
-                        <option value="1">One</option>
-                        <option value="2">Two</option>
+                        <option defaultValue>Select a Manager type</option>
+                        <option value="1">DevManager</option>
+                        <option value="2">QAManager</option>
+                        <option value="2">PMManager</option>
                       </select>
                 </div>
                 <div className="modal-footer">
