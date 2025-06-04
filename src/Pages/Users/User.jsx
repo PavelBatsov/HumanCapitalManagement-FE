@@ -11,7 +11,13 @@ const User = (props) => {
         firstName: '',
         lastName: '',
         roleName: '',
-        roleId: ''
+        roleId: '',
+        address: {
+          address: '',
+          city: '',
+          country: '',
+          postCode: ''
+        }
     })
     const [reloadCount, setReloadCount] = useState(0)
     const [isAddModelOpen, setIsAddModelOpen] = useState()
@@ -55,7 +61,13 @@ const User = (props) => {
             firstName: '',
             lastName: '',
             roleName: '',
-            roleId: ''
+            roleId: '',
+            address: {
+              address: '',
+              city: '',
+              country: '',
+              postCode: ''
+            }
         })
     }
 
@@ -76,13 +88,16 @@ const User = (props) => {
 
         const requestData = new FormData(event.target)
 
+        requestData.append("Address.Address", event.target.address.value);
+        requestData.append("Address.City", event.target.city.value);
+        requestData.append("Address.Country", event.target.country.value);
+        requestData.append("Address.PostCode", event.target.postCode.value);
+
         fetch('https://localhost:7049/api/Account/UpdateAccount', {
           method: 'PUT',
           headers: {
-            //'Content-Type': 'application/json',
             'Authorization': 'Bearer ' + localStorage.getItem('accessToken')
           },
-          //body: JSON.stringify(requestData)
           body: requestData
         })
         .then(result => {
@@ -154,6 +169,22 @@ const User = (props) => {
                 <div className="mb-3">
                   <label htmlFor="recipient-name" className="col-form-label">Last Name</label>
                   <input type="text" className="form-control" name="lastName" defaultValue={defaultForm.lastName} />
+                </div>
+                <div className="mb-3">
+                  <label htmlFor="recipient-name" className="col-form-label">Address</label>
+                  <input type="text" className="form-control" name="address" defaultValue={defaultForm.address.address} />
+                </div>
+                <div className="mb-3">
+                  <label htmlFor="recipient-name" className="col-form-label">City</label>
+                  <input type="text" className="form-control" name="city" defaultValue={defaultForm.address.city} />
+                </div>
+                <div className="mb-3">
+                  <label htmlFor="recipient-name" className="col-form-label">Country</label>
+                  <input type="text" className="form-control" name="country" defaultValue={defaultForm.address.country} />
+                </div>
+                <div className="mb-3">
+                  <label htmlFor="recipient-name" className="col-form-label">Post Code</label>
+                  <input type="text" className="form-control" name="postCode" defaultValue={defaultForm.address.postCode} />
                 </div>
                 <div className="mb-3">
                   <label htmlFor="recipient-name" className="col-form-label">Roles</label>

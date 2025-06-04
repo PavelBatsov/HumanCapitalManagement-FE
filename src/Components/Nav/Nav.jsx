@@ -26,19 +26,19 @@ const Nav = (props) => {
         {
           props.currentUserData != undefined ?
             <li className="nav-item">
-              <NavLink className='nav-link' to="/manager">Manager</NavLink >
+              <NavLink className='nav-link' to="/manager">Managers</NavLink >
             </li> : null
         }
         {
           props.currentUserData != undefined ?
             <li className="nav-item">
-              <NavLink className='nav-link' to="/employee">Employee</NavLink >
+              <NavLink className='nav-link' to="/employee">Employees</NavLink >
             </li> : null
         }
         {
           props.currentUserData != undefined ?
             <li className="nav-item">
-              <NavLink className='nav-link' to="/user">User</NavLink >
+              <NavLink className='nav-link' to="/user">Users</NavLink >
             </li> : null
         }
       </ul>

@@ -26,6 +26,11 @@ const Registration = () => {
 
         const requestData = new FormData(event.target)
 
+        requestData.append("Address.Address", event.target.address.value);
+        requestData.append("Address.City", event.target.city.value);
+        requestData.append("Address.Country", event.target.country.value);
+        requestData.append("Address.PostCode", event.target.postCode.value);
+
         fetch('https://localhost:7049/api/Account/Register', {
           method: 'POST',
           headers: {
@@ -62,6 +67,22 @@ const Registration = () => {
           <div className="mb-3">
             <label htmlFor="recipient-name" className="col-form-label">Last Name</label>
             <input type="text" className="form-control" name="lastName"  />
+          </div>
+          <div className="mb-3">
+            <label htmlFor="recipient-name" className="col-form-label">Address</label>
+            <input type="text" className="form-control" name="address"  />
+          </div>
+          <div className="mb-3">
+            <label htmlFor="recipient-name" className="col-form-label">City</label>
+            <input type="text" className="form-control" name="city"  />
+          </div>
+          <div className="mb-3">
+            <label htmlFor="recipient-name" className="col-form-label">Country</label>
+            <input type="text" className="form-control" name="country"  />
+          </div>
+          <div className="mb-3">
+            <label htmlFor="recipient-name" className="col-form-label">Post Code</label>
+            <input type="text" className="form-control" name="postCode"  />
           </div>
           <div className="mb-3">
              <label htmlFor="recipient-name" className="col-form-label">Roles</label>
