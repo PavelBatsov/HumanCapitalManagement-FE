@@ -7,6 +7,7 @@ import Nav from './Components/Nav/Nav'
 import Home from './Pages/Home/Home'
 import Manager from './Pages/Managers/Manager'
 import Employee from './Pages/Employees/Employee'
+import User from './Pages/Users/User'
 
 function App() {
   const navigate = useNavigate();
@@ -57,6 +58,7 @@ function App() {
         <Route path="registration" element={currentUserData == undefined ? <Registration /> : null} />
         <Route path="manager" element={currentUserData != undefined ? <Manager currentUserData={currentUserData} /> : null} />
         <Route path="employee" element={currentUserData != undefined ? <Employee currentUserData={currentUserData} /> : null} />
+        <Route path="user" element={currentUserData != undefined ? <User currentUserData={currentUserData} /> : null} />
       </Routes>
     </div>
     </>

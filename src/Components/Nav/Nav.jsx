@@ -35,6 +35,12 @@ const Nav = (props) => {
               <NavLink className='nav-link' to="/employee">Employee</NavLink >
             </li> : null
         }
+        {
+          props.currentUserData != undefined ?
+            <li className="nav-item">
+              <NavLink className='nav-link' to="/user">User</NavLink >
+            </li> : null
+        }
       </ul>
     </div>
     {

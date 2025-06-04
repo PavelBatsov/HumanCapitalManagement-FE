@@ -2,37 +2,21 @@ import { useEffect, useState } from "react"
 import "./Registraton.css"
 
 const Registration = () => {
-    const [users, setUsers] = useState()
     const [userRoles, setUserRoles] = useState([])
 
     useEffect(()=>{
-        fetch('https://localhost:7049/api/Account/GetAll', {
-        method: 'GET',
-        headers: {
-            'Content-Type': 'application/json',
-            'Authorization': 'Bearer ' + localStorage.getItem('accessToken')
-        }
-        })
-        .then(response =>
-            response.json()
-        )
-        .then(result => {
-            setUsers(result)
-        });
-
         fetch('https://localhost:7049/api/Account/GetAllUserRoles', {
-        method: 'GET',
-        headers: {
-            'Content-Type': 'application/json',
-            'Authorization': 'Bearer ' + localStorage.getItem('accessToken')
-        }
-        })
-        .then(response =>
-            response.json()
-        )
-        .then(result => {
-            setUserRoles(result)
-        });
+            method: 'GET',
+            headers: {
+                'Content-Type': 'application/json'
+            }
+            })
+            .then(response =>
+                response.json()
+            )
+            .then(result => {
+                setUserRoles(result)
+            });
     }, [])
 
     const onSubmit = (event) => {
@@ -43,9 +27,8 @@ const Registration = () => {
         fetch('https://localhost:7049/api/Account/Register', {
           method: 'POST',
           headers: {
-            'Content-Type': 'application/json'
           },
-          body: JSON.stringify(requestData)
+          body: requestData
         })
         .then(result => {});
     }
