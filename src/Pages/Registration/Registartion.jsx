@@ -1,7 +1,9 @@
 import { useEffect, useState } from "react"
 import "./Registraton.css"
+import { useNavigate } from "react-router";
 
 const Registration = () => {
+    const navigate = useNavigate();
     const [userRoles, setUserRoles] = useState([])
 
     useEffect(()=>{
@@ -30,7 +32,9 @@ const Registration = () => {
           },
           body: requestData
         })
-        .then(result => {});
+        .then(result => {
+            navigate("/");
+        });
     }
     
     return <> <div className="registration">

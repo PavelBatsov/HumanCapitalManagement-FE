@@ -11,7 +11,8 @@ const Employee = (props) => {
         lastName: '',
         phoneNumber: '',
         address: '',
-        employeeType: ''
+        employeeType: '',
+        employeeName: ''
     })
     const [reloadCount, setReloadCount] = useState(0)
     const [isAddModelOpen, setIsAddModelOpen] = useState()
@@ -55,7 +56,8 @@ const Employee = (props) => {
             lastName: '',
             phoneNumber: '',
             address: '',
-            employeeType: ''
+            employeeType: '',
+            employeeName: ''
         })
     }
 
@@ -107,7 +109,7 @@ const Employee = (props) => {
           <th scope="col">Last Name</th>
           <th scope="col">Phone Number</th>
           <th scope="col">Address</th>
-          <th scope="col">Employee Type</th>
+          <th scope="col">Employee</th>
           <th scope="col">Actions</th>
         </tr>
       </thead>
@@ -119,7 +121,7 @@ const Employee = (props) => {
           <td>{ employee.lastName }</td>
           <td>{ employee.phoneNumber }</td>
           <td>{ employee.address }</td>
-          <td>{ employee.employeeType }</td>
+          <td>{ employee.employeeName }</td>
           <td>
               <button type="button" className="btn btn-outline-primary" onClick={() => {setDefaultForm(employee), setIsAddModelOpen("Edit")}}>Edit</button> <button type="button" className="btn btn-outline-danger" onClick={() => onDeleteHandler(employee.id)}>Delete</button>
           </td>
@@ -169,7 +171,7 @@ const Employee = (props) => {
                         <option value="2">PM</option>
                       </select>
                     <label htmlFor="recipient-name" className="col-form-label">Manager</label>
-                      <select className="form-select" aria-label="Default select example" name="managerId" >
+                      <select className="form-select" aria-label="Default select example" name="managerId" defaultValue={defaultForm.managerId}>
                         <option defaultValue>Select a Manager</option>
                         {
                             managers.map((manager) => (

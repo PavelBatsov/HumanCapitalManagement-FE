@@ -10,7 +10,8 @@ const Manager = (props) => {
         lastName: '',
         phoneNumber: '',
         address: '',
-        managerType: ''
+        managerType: '',
+        managerName: ''
     })
     const [reloadCount, setReloadCount] = useState(0)
     const [isAddModelOpen, setIsAddModelOpen] = useState()
@@ -40,7 +41,8 @@ const Manager = (props) => {
             lastName: '',
             phoneNumber: '',
             address: '',
-            managerType: ''
+            managerType: '',
+            managerName: ''
         })
     }
 
@@ -72,7 +74,7 @@ const Manager = (props) => {
         })
         .then(result => {
             //if (result.status === 401) {
-                // TODO Call refreshToken endpoint
+                // TODO Call refreshToken endpoint and do the request again.
             //}
                 
             onClickHandler()
@@ -84,7 +86,7 @@ const Manager = (props) => {
     return <><h2 className="manager">
         Manager
     </h2>
-        <button type="button" className="btn btn-outline-success" onClick={() => setIsAddModelOpen("Add")}>Add</button>
+         {managers && <button type="button" className="btn btn-outline-success" onClick={() => setIsAddModelOpen("Add")}>Add</button>}
     <br/>
     <br/>
     {
@@ -96,7 +98,7 @@ const Manager = (props) => {
           <th scope="col">Last Name</th>
           <th scope="col">Phone Number</th>
           <th scope="col">Address</th>
-          <th scope="col">Manager Type</th>
+          <th scope="col">Manager</th>
           <th scope="col">Actions</th>
         </tr>
       </thead>
@@ -108,7 +110,7 @@ const Manager = (props) => {
           <td>{ manager.lastName }</td>
           <td>{ manager.phoneNumber }</td>
           <td>{ manager.address }</td>
-          <td>{ manager.managerType }</td>
+          <td>{ manager.managerName }</td>
           <td>
               <button type="button" className="btn btn-outline-primary" onClick={() => {setDefaultForm(manager), setIsAddModelOpen("Edit")}}>Edit</button> <button type="button" className="btn btn-outline-danger" onClick={() => onDeleteHandler(manager.id)}>Delete</button>
           </td>

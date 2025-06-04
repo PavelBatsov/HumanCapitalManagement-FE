@@ -10,7 +10,8 @@ const User = (props) => {
         email: '',
         firstName: '',
         lastName: '',
-        role: ''
+        roleName: '',
+        roleId: ''
     })
     const [reloadCount, setReloadCount] = useState(0)
     const [isAddModelOpen, setIsAddModelOpen] = useState()
@@ -53,7 +54,8 @@ const User = (props) => {
             email: '',
             firstName: '',
             lastName: '',
-            role: ''
+            roleName: '',
+            roleId: ''
         })
     }
 
@@ -113,7 +115,7 @@ const User = (props) => {
           <td>{ user.email }</td>
           <td>{ user.firstName }</td>
           <td>{ user.lastName }</td>
-          <td>{ user.role }</td>
+          <td>{ user.roleName }</td>
           <td>
               <button type="button" className="btn btn-outline-primary" onClick={() => {setDefaultForm(user), setIsAddModelOpen("Edit")}}>Edit</button> <button type="button" className="btn btn-outline-danger" onClick={() => onDeleteHandler(user.id)}>Delete</button>
           </td>
@@ -155,7 +157,7 @@ const User = (props) => {
                 </div>
                 <div className="mb-3">
                   <label htmlFor="recipient-name" className="col-form-label">Roles</label>
-                <select className="form-select" aria-label="Default select example" name="roleId" >
+                <select className="form-select" aria-label="Default select example" name="roleId" defaultValue={defaultForm.roleId}>
                     <option defaultValue>Select a Role</option>
                     {
                         userRoles.map((userRole) => (
