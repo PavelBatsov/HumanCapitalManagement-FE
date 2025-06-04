@@ -97,7 +97,7 @@ const Employee = (props) => {
     return <><h2 className="employee">
         Employee
     </h2>
-        <button type="button" className="btn btn-outline-success" onClick={() => setIsAddModelOpen("Add")}>Add</button>
+        { employees && <button type="button" className="btn btn-outline-success" onClick={() => setIsAddModelOpen("Add")}>Add</button> }
     <br/>
     <br/>
     {
