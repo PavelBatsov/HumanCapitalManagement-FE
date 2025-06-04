@@ -160,7 +160,7 @@ const Employee = (props) => {
                   <input type="text" className="form-control" name="address" defaultValue={defaultForm.address} />
                 </div>
                 <div className="mb-3">
-                  <label htmlFor="recipient-name" className="col-form-label">Employee Type</label>
+                    <label htmlFor="recipient-name" className="col-form-label">Employee Type</label>
                       <select className="form-select" aria-label="Default select example" name="employeeType" defaultValue={defaultForm.employeeType}>
                         <option defaultValue>Select an Employee type</option>
                         <option value="1">BE</option>
