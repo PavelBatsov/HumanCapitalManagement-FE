@@ -1,12 +1,15 @@
-# React + Vite
+# HumanCapitalManagement-FE
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+The main idea of the Application is managing people records. 
 
-Currently, two official plugins are available:
+It has been developed in .Net 8 and has implemented JWT Authentication and custom accounts management.
+There are 7 pages in total - Home, Register, Login, Users, Managers, Employees and Tasks.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+Initially, we want to register an account with specific role, which has different access and functionality, or use the predefined one.
+The business logic is the following - Admin should create Manager, then the Manager should create an Employee and assign in to any Manager. The Employee needs to see his/her tasks.
 
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+There are three roles in total - Admin (predefined), Manager and Employee.
+The roles access and functionality: 
+  Admin - full privilege in the application.
+  Manager - access to Manager (ReadOnly), Employee (ReadWrite) and Task page.
+  Employee - access only to Task page.
