@@ -8,6 +8,7 @@ import Home from './Pages/Home/Home'
 import Manager from './Pages/Managers/Manager'
 import Employee from './Pages/Employees/Employee'
 import User from './Pages/Users/User'
+import Task from './Pages/Task/Task'
 
 function App() {
   const navigate = useNavigate();
@@ -56,9 +57,10 @@ function App() {
         <Route path="/" element={<Home currentUserData={currentUserData} />} />
         <Route path="login" element={currentUserData == undefined ? <Login onGettingUserData={onLogin} /> : null} />
         <Route path="registration" element={currentUserData == undefined ? <Registration /> : null} />
-        <Route path="manager" element={currentUserData != undefined ? <Manager currentUserData={currentUserData} /> : null} />
-        <Route path="employee" element={currentUserData != undefined ? <Employee currentUserData={currentUserData} /> : null} />
-        <Route path="user" element={currentUserData != undefined ? <User currentUserData={currentUserData} /> : null} />
+        <Route path="manager" element={currentUserData != undefined && currentUserData.user.roleName != 'Employee' ? <Manager currentUserData={currentUserData} /> : null} />
+        <Route path="employee" element={currentUserData != undefined  && currentUserData.user.roleName != 'Employee' ? <Employee currentUserData={currentUserData} /> : null} />
+        <Route path="user" element={currentUserData != undefined && currentUserData.user.roleName == 'Admin' ? <User currentUserData={currentUserData} /> : null} />
+        <Route path="task" element={currentUserData != undefined ? <Task currentUserData={currentUserData} /> : null} />
       </Routes>
     </div>
     </>

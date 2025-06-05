@@ -24,21 +24,27 @@ const Nav = (props) => {
             </li> : null
         }
         {
-          props.currentUserData != undefined ?
+          props.currentUserData != undefined && props.currentUserData.user.roleName != 'Employee' ?
             <li className="nav-item">
               <NavLink className='nav-link' to="/manager">Managers</NavLink >
             </li> : null
         }
         {
-          props.currentUserData != undefined ?
+          props.currentUserData != undefined && props.currentUserData.user.roleName != 'Employee' ?
             <li className="nav-item">
               <NavLink className='nav-link' to="/employee">Employees</NavLink >
             </li> : null
         }
         {
-          props.currentUserData != undefined ?
+          props.currentUserData != undefined && props.currentUserData.user.roleName == 'Admin' ?
             <li className="nav-item">
               <NavLink className='nav-link' to="/user">Users</NavLink >
+            </li> : null
+        }
+        {
+          props.currentUserData != undefined ?
+            <li className="nav-item">
+              <NavLink className='nav-link' to="/task">Task</NavLink >
             </li> : null
         }
       </ul>
